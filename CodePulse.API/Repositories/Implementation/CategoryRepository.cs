@@ -29,6 +29,7 @@ namespace CodePulse.API.Repositories.Implementation
             {
                 dbContext.Categories.Remove(existingItem);
                 await dbContext.SaveChangesAsync();
+                
                 return existingItem;
             }
             return null;
@@ -41,6 +42,7 @@ namespace CodePulse.API.Repositories.Implementation
 
         public async Task<Category?> GetCategoryByIdAsync(Guid id)
         {
+            // This method is used to get a category by its ID
             return await dbContext.Categories.FirstOrDefaultAsync(c => c.Id == id);
         }
 
